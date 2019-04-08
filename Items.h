@@ -1,17 +1,20 @@
 # ifndef ITEMS_H
 # define ITEMS_H
-# include "Engine.h"
+# include "Settings.h"
 
-class Item{
-
-};
-
-class RepairKit : Item{
+class Items{
 
 };
 
-class AmmoPack : Item{
+class RepairKit : Items{
+
+};
+
+class AmmoPack : Items{
+
 public:
+  string bulletType;
+  int cappacity;
 
 };
 # endif

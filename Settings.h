@@ -1,5 +1,7 @@
 #ifndef SETTINGS_H
 # define SETTINGS_H
+# include <SDL2/SDL.h>
+# include <list>
 # include <iostream>
 using namespace std;
 

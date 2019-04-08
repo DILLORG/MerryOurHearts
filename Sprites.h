@@ -1,6 +1,6 @@
 # ifndef SPRITE_H
 # define SPRITE_H
-# include "Engine.h"
+# include "Settings.h"
 
 class Sprite{
 
@@ -15,7 +15,8 @@ class ChineMine : Sprite{
 };
 
 class Ship : Sprite {
-
+public:
+  list <Items> inventory;
 };
 
 class HealthBar : Sprite {
