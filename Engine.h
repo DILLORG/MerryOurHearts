@@ -8,13 +8,13 @@ class Game{
   private:
     bool _isRunning;
 
-    SDL_Window* _window = nullptr;
-    SDL_Renderer* _renderer = nullptr;
+    SDL_Window* _window;
+    SDL_Renderer* _renderer;
 
   public:
+      Game();
       list <Sprite> npcPopulation;
       list <Items> objectPopulation;
-      Game(SDL_Window, SDL_Renderer);
       void init(const char* title, int xpos, int ypos, int width, int height,
                 bool fullscreen);
       void update();

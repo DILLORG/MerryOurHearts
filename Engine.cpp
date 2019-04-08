@@ -1,8 +1,6 @@
 # include "Engine.h"
 
-Game::Game(SDL_Window window, SDL_Renderer renderer){
-  _window = window;
-  _renderer = renderer;
+Game::Game(){
 
 }
 void Game::init(const char *title, int xpos, int ypos, int width, int height,
