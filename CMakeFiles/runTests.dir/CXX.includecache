@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Engine.h
+Settings.h
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Settings.h
+Items.h
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Items.h
+Sprites.h
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Sprites.h
+
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Items.h
+Settings.h
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Settings.h
+
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Settings.h
+SDL2/SDL.h
+-
+list
+-
+iostream
+-
+
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Sprites.h
+Settings.h
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Settings.h
+Items.h
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Items.h
+
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Test.cpp
+Engine.h
+/home/dill/PycharmProjects/MerryOurHeartsGit/MerryOurHearts/merry_our_hearts/Engine.h
+gtest/gtest.h
+-
+

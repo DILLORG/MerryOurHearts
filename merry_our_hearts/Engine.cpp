@@ -1,8 +1,5 @@
 # include "Engine.h"
 
-Game::Game(){
-
-}
 void Game::init(const char *title, int xpos, int ypos, int width, int height,
            bool fullscreen)
 {
@@ -27,7 +24,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height,
 
     _isRunning = true;
 
-  }else{
+  }else{ //Sdl or one of games components faile to initialize.
     cerr << "Failed to initialize game";
     _isRunning = false;
   }
