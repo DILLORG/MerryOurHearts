@@ -2,7 +2,7 @@
 # define ENGIINE_H
 # include "Settings.h"
 # include "Items.h"
-# include "Sprites.h"
+# include "MOHSprites.h"
 
 class Game{
   private:
@@ -13,7 +13,7 @@ class Game{
 
   public:
       Game();
-      list <Sprite> npcPopulation;
+      list <MOHSprite> npcPopulation;
       list <Items> objectPopulation;
       void init(const char* title, int xpos, int ypos, int width, int height,
                 bool fullscreen);
@@ -25,9 +25,8 @@ class Game{
       inline bool running(){return _isRunning;};
 
       ~Game();
-
 };
-namespace Engine{
+namespace MOHEngine{
   void handleEventes(Game game);
 
 }

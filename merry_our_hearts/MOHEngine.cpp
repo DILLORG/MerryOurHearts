@@ -1,4 +1,4 @@
-# include "Engine.h"
+# include "MOHEngine.h"
 
 void Game::init(const char *title, int xpos, int ypos, int width, int height,
            bool fullscreen)
@@ -39,7 +39,7 @@ void Game::draw(){
 
 }
 
-void Engine::handleEventes(Game game){
+void MOHEngine::handleEventes(Game game){
 
   SDL_Event event;
   SDL_PollEvent(&event);
