@@ -86,15 +86,16 @@ void Game::handleEvents(Player* player){
       break;
     case SDLK_d:
       player -> MovingRight();
-
+      break;
     case SDLK_KP_SPACE:
       player -> FireBullet();
+
       break;
 
 
     default:
       break;
-
+    player -> ResetFlag();
   }
 }
 Game::~Game(){

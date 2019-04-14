@@ -15,7 +15,7 @@ void MOHSprite::Draw(){
 void MOHSprite::Update(){
   _xpos = 0;
   _ypos = 0;
-  
+
   _srcRect.h = 180;
   _srcRect.w = 180;
   _srcRect.x = 0;
@@ -26,4 +26,10 @@ void MOHSprite::Update(){
   _destRect.h = _srcRect.w * 2;
   _destRect.h = ~_srcRect.h * 2;
 
+}
+void Ship::ResetFlags(){
+  _isMovingDown = false;
+  _isMovingUp = false;
+  _isMovingLeft = false;
+  _isMovingRight = false;
 }

@@ -30,12 +30,17 @@ class Player : MOHSprite {
 
 private:
   list <Items> inventory;
+  bool _isMovingDown = false;
+  bool _isMovingUp = false;
+  bool _isMovingLeft = false;
+  bool _isMovingRight = false;
 public:
   Player();
-  inline bool MovingDown();
-  inline bool MovingUp();
-  inline bool MovingLeft();
-  inline bool MovingRight();
+  inline void MovingDown(){_isMovingDown = true;};
+  inline void MovingUp(){_isMovingUp = true;};
+  inline void MovingLeft(){_isMovingLeft = true;};
+  inline void MovingRight(){_isMovingRight = true;};
+  void ResetFlags();
   void Update();
   void Draw();
   void Kill();

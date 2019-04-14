@@ -9,7 +9,7 @@ class TextureLoader{
 
   public:
     template <class C>
-    static SDL_Texture* LoadMoultipleTextures(C container, const char* p, SDL_Renderer* r);
+    static SDL_Texture* LoadMultipleTextures(C container, const char* p, SDL_Renderer* r);
     static SDL_Texture* LoadSingleTexture(const char* p, SDL_Renderer* rend);
 };
 
