@@ -27,7 +27,7 @@ void MOHSprite::Update(){
   _destRect.h = ~_srcRect.h * 2;
 
 }
-void Ship::ResetFlags(){
+void Player::ResetFlags(){
   _isMovingDown = false;
   _isMovingUp = false;
   _isMovingLeft = false;

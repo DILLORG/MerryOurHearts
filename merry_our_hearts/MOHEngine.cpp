@@ -95,8 +95,8 @@ void Game::handleEvents(Player* player){
 
     default:
       break;
-    player -> ResetFlag();
-  }
+    }
+    player -> ResetFlags();
 }
 Game::~Game(){
 
