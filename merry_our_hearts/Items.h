@@ -1,6 +1,7 @@
+# pragma once
 # ifndef ITEMS_H
 # define ITEMS_H
-# include "Settings.h"
+# include "MOHEngine.h"
 
 class Items{
 

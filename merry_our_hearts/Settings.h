@@ -1,9 +1,12 @@
 #ifndef SETTINGS_H
 # define SETTINGS_H
-# include <SDL2/SDL.h>
-# include <list>
 # include <iostream>
+# include <list>
+# include <SDL2/SDL.h>
+# include <SDL2/SDL_image.h>
+
 using namespace std;
+
 
 // Directory Settings.
 const string SOUNDS_DIR = "sounds";
@@ -15,8 +18,9 @@ const string TEST_DIR = "test";
 
 //Display Settings.
 const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGH = 480;
-const int MAX_HEIGHT = SCREEN_HEIGH - 40;
+const int SCREEN_HEIGHT = 480;
+const bool FULLSCREEN = false;
+const int MAX_HEIGHT = SCREEN_HEIGHT - 40;
 
 // Ammo Settings.
 const int BULLET_WIDTH = 3;
