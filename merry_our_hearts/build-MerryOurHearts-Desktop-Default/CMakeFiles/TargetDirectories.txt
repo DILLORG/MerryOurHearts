@@ -1,4 +1,0 @@
-/home/dill/MerryOurHearts/merry_our_hearts/build-MerryOurHearts-Desktop-Default/CMakeFiles/rebuild_cache.dir
-/home/dill/MerryOurHearts/merry_our_hearts/build-MerryOurHearts-Desktop-Default/CMakeFiles/MerryOurHearts.dir
-/home/dill/MerryOurHearts/merry_our_hearts/build-MerryOurHearts-Desktop-Default/CMakeFiles/edit_cache.dir
-/home/dill/MerryOurHearts/merry_our_hearts/build-MerryOurHearts-Desktop-Default/CMakeFiles/MerryOurHearts_autogen.dir
