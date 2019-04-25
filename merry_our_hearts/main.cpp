@@ -20,4 +20,5 @@ int main(){
   delete [] game;
   delete [] player;
 
+
 }

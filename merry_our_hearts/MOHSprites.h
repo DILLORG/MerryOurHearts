@@ -2,7 +2,7 @@
 # ifndef MOH_SPRITE_H
 # define MOH_SPRITE_H
 # include "MOHEngine.h"
-using namespace MOHEngine;
+
 class MOHSprite{
 private:
   SDL_Texture* texture;

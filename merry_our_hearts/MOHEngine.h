@@ -14,7 +14,7 @@ class TextureLoader{
 };
 
 class Game{
-  private:
+private:
     bool _isRunning;
     SDL_Window* _window;
     SDL_Renderer* _renderer;

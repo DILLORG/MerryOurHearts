@@ -10,6 +10,7 @@ void MOHSprite::Draw(){
 
   //Render given texture on given sprite at given location.
   SDL_RenderCopy(renderer, texture, &_srcRect, &_destRect);
+
 }
 
 void MOHSprite::Update(){

@@ -1,6 +1,7 @@
+# pragma once
 #ifndef SETTINGS_H
 # define SETTINGS_H
-# include <iostream>
+# include <string>
 # include <list>
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_image.h>
@@ -12,9 +13,9 @@ using namespace std;
 const string SOUNDS_DIR = "sounds";
 const string MUSIC_DIR = "music";
 const string IMAGES_DIR = "images";
-const string LOGS_DIR = "logs";
+const string LOGS_DIR = "..logs/";
 const string FONT_DIR = "font";
-const string TEST_DIR = "test";
+const string TEST_DIR = "..test/";
 
 //Display Settings.
 const int SCREEN_WIDTH = 640;
@@ -34,7 +35,7 @@ const int SHIP_PAN_SPEED = 2;
 const double SHIP_REVERESE_SPEED = 0.8;
 
 //Drop Settings.
-const int REPAIR_KIT_VALUE =1;
+const int REPAIR_KIT_VALUE = 1;
 
 //Performace Settings
 const int FPS = 60;
