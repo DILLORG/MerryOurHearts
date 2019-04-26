@@ -1,19 +1,18 @@
 # include "MOHSprites.h"
 
-MOHSprite::MOHSprite(const char* t, SDL_Renderer* r){
-
-  renderer = r;
+MOHSprite::MOHSprite(const char* path){
   //Load Texture.
-  texture = MOHEngine::TextureLoader::LoadSingleTexture(t, r);
+  _texture = MOHEngine::LoadSingleTexture(path);
+
 }
-void MOHSprite::Draw(){
+void MOHSprite::draw(){
 
   //Render given texture on given sprite at given location.
-  SDL_RenderCopy(renderer, texture, &_srcRect, &_destRect);
+  SDL_RenderCopy(_renderer, _texture, &_srcRect, &_destRect);
 
 }
 
-void MOHSprite::Update(){
+void MOHSprite::update(){
   _xpos = 0;
   _ypos = 0;
 

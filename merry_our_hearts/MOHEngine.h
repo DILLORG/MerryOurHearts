@@ -1,42 +1,46 @@
 # pragma once
-# ifndef ENGINE_H
-# define ENGINE_H
+# ifndef MOHENGINE_H
+# define MOHENGINE_H
 # include "Settings.h"
 # include "Items.h"
 # include "MOHSprites.h"
+
 namespace MOHEngine{
-class TextureLoader{
-
-  public:
-    template <class C>
-    static SDL_Texture* LoadMultipleTextures(C container, const char* p, SDL_Renderer* r);
-    static SDL_Texture* LoadSingleTexture(const char* p, SDL_Renderer* rend);
-};
-
 class Game{
-private:
+
+  private:
     bool _isRunning;
     SDL_Window* _window;
     SDL_Renderer* _renderer;
 
-  public:
+    public:
       Game();
       //None player sprites.
-      list <MOHSprite> npcPopulation;
+      list <MOHSprite*> npcPopulation;
       //Health packs and other game objects.
-      list <Items> objectPopulation;
+      list <Items*> objectPopulation;
+      inline SDL_Window* getWindow(){return _window;};
+      inline SDL_Renderer* getRendere(){return _renderer;};
+      inline bool running(){return _isRunning;};
+      inline void changeRunState(bool value){_isRunning = value;};
 
       //Title X POS Y POS WIDTH HEIGHT FULLSCREEN?
       void init(const char* t, int x, int y, int w, int h, bool fs);
       void update();
-      inline MOHSprite Spawner(const char* type);
-      void houseKeeping();
-      void handleEvents(Player* player);
       void draw();
       void clean();
-      inline bool running(){return _isRunning;};
-      ~Game();
 
-};
+      ~Game();
+  };
+
+  //Engine Functions.
+  list <SDL_Texture> LoadMultipleTextures(const char* path, Game &game);
+  SDL_Texture LoadSingleTexture(const char* path, Game* game);
+  MOHSprite Spawner(const char* path, Game* game);
+  void handleEvents(Player* player, Game* game);
+  void update(Player* player, Game* game);
+  void draw(Player* player, Game* game);
+
+
 }
 # endif

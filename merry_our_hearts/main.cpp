@@ -10,9 +10,9 @@ int main(){
 
   //Main game loop.
   while(game -> running()){
-    game -> handleEvents(player);
-    game -> update();
-    game -> draw();
+    MOHEngine::handleEvents(player, game);
+    MOHEngine::update(player, game);
+    MOHEngine::draw(player, game);
   }
   //TODO Serialize game objects.
 

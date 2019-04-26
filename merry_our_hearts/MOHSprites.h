@@ -5,17 +5,17 @@
 
 class MOHSprite{
 private:
-  SDL_Texture* texture;
+  SDL_Texture* _texture;
   SDL_Rect _srcRect, _destRect;
-  SDL_Renderer* renderer;
+  SDL_Renderer* _renderer;
   int _xpos;
   int _ypos;
 public:
-  MOHSprite(const char* t, SDL_Renderer* r);
-  virtual void Update();
-  virtual void Draw();
-  virtual void Kill();
-  ~MOHSprite();
+  MOHSprite(const char* t);
+  virtual void update();
+  virtual void draw();
+  virtual void kill();
+
 };
 
 class Destroyer : MOHSprite {
@@ -36,15 +36,15 @@ private:
   bool _isMovingRight = false;
 public:
   Player();
-  inline void MovingDown(){_isMovingDown = true;};
-  inline void MovingUp(){_isMovingUp = true;};
-  inline void MovingLeft(){_isMovingLeft = true;};
-  inline void MovingRight(){_isMovingRight = true;};
-  void ResetFlags();
-  void Update();
-  void Draw();
-  void Kill();
-  void FireBullet();
+  inline void movingDown(){_isMovingDown = true;};
+  inline void movingUp(){_isMovingUp = true;};
+  inline void movingLeft(){_isMovingLeft = true;};
+  inline void movingRight(){_isMovingRight = true;};
+  void resetFlags();
+  void update();
+  void draw();
+  void kill();
+  void fireBullet();
   ~Player();
 
 };

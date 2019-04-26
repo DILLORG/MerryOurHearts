@@ -7,3 +7,4 @@ test/CMakeFiles/MakeFile
 test/cmake_install.cmake
 test/CMakeCache.txt
 test/Makefile
+.idea

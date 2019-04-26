@@ -35,7 +35,7 @@ void Game::init(const char *t, int x, int y, int w, int h, bool fs)
     _isRunning = true;
 
   }else{ //Sdl or one of games components faile to initialize.
-    cerr << "One or more components faild to initialize!";
+    printf("One or more components faild to initialize! ");
     _isRunning = false;
 
   }
@@ -44,6 +44,11 @@ void Game::init(const char *t, int x, int y, int w, int h, bool fs)
 
 void Game::update(){
 
+  //Update sprites that spawn.
+  for(MOHSprite* s : npcPopulation)
+    s -> update();
+  for(MOHObject* o : objectPopulation)
+    o -> update();
 }
 
 void Game::draw(){
@@ -61,7 +66,7 @@ void Game::clean(){
   SDL_Quit();
 }
 
-void Game::handleEvents(Player* player){
+void MOHEngine::handleEvents(Player* player, Game* game){
 
   SDL_Event event;
   SDL_PollEvent(&event);
@@ -69,47 +74,50 @@ void Game::handleEvents(Player* player){
   //Perform function depending upon input.
   switch(event.type){
     case SDL_QUIT:
-      _isRunning = false;
+      game -> changeRunState(false);
       printf("User exited the program\n");
       break;
-
     case SDLK_w:
-      player -> MovingUp();
+      player -> movingUp();
       break;
-
     case SDLK_s:
-      player -> MovingDown();
+      player -> movingDown();
       break;
-
     case SDLK_a:
-      player -> MovingLeft();
+      player -> movingLeft();
       break;
     case SDLK_d:
-      player -> MovingRight();
+      player -> movingRight();
       break;
     case SDLK_KP_SPACE:
-      player -> FireBullet();
-
+      player -> fireBullet();
       break;
+  }
 
-
-    default:
-      break;
-    }
-    player -> ResetFlags();
+    player -> resetFlags();
 }
-Game::~Game(){
 
+//Update all  game objects npc and player sprites.
+void MOHEngine::update(Player *player, Game *game){
+  game -> update();
+  player -> update();
 }
-SDL_Texture* TextureLoader::LoadSingleTexture(const char* texturePath, SDL_Renderer* ren){
+
+//Load a single image files and create a texture from it.
+SDL_Texture* MOHEngine::LoadSingleTexture(const char* texturePath, Game* game){
 
   //Load file from given path and create texture.
   SDL_Surface* tmpSurface = IMG_Load(texturePath);
-  SDL_Texture* tex = SDL_CreateTextureFromSurface(ren, tmpSurface);
+  SDL_Texture* tex = SDL_CreateTextureFromSurface(, tmpSurface);
 
   //Free surface object from memmory.
   SDL_FreeSurface(tmpSurface);
   //Return texture.
   return tex;
+
+}
+
+//Load several image files into a list of texture pointers.
+list <SDL_Texture*> MOHEngine::LoadMultipleTextures(const char path, Game* game){
 
 }
