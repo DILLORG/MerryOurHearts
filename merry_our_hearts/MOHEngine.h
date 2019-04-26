@@ -1,6 +1,6 @@
 # pragma once
-# ifndef MOHENGINE_H
-# define MOHENGINE_H
+# ifndef MOH_ENGINE_H
+# define MOH_ENGINE_H
 # include "Settings.h"
 # include "Items.h"
 # include "MOHSprites.h"

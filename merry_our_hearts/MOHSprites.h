@@ -10,47 +10,60 @@ private:
   SDL_Renderer* _renderer;
   int _xpos;
   int _ypos;
+  list <Items> inventory;
+  list <SDL_Texture> animations;
+
 public:
   MOHSprite(const char* t);
   virtual void update();
   virtual void draw();
-  virtual void kill();
+  void kill();
 
 };
-
-class Destroyer : MOHSprite {
-
+class HealthBar : MOHSprite{
+public:
+  HealthBar();
+  void update();
+  void draw();
+  ~HealthBar();
 };
-
-class ChineMine : MOHSprite{
-
-};
-
 class Player : MOHSprite {
-
 private:
-  list <Items> inventory;
   bool _isMovingDown = false;
   bool _isMovingUp = false;
   bool _isMovingLeft = false;
   bool _isMovingRight = false;
+
 public:
   Player();
-  inline void movingDown(){_isMovingDown = true;};
   inline void movingUp(){_isMovingUp = true;};
+  inline void movingDown(){_isMovingDown = true;};
   inline void movingLeft(){_isMovingLeft = true;};
   inline void movingRight(){_isMovingRight = true;};
-  void resetFlags();
   void update();
   void draw();
-  void kill();
-  void fireBullet();
-  ~Player();
-
 };
-
-class HealthBar : MOHSprite {
-
+//Enemies.
+class ChainMine : MOHSprite{
+  public:
+    ChainMine();
+    void update();
+    void draw();
+    ~ChainMine();
+  };
+//Bosses
+class Destroyer : MOHSprite {
+  public:
+    Destroyer();
+    void update();
+    void draw();
+    ~Destroyer();
+  };
+class Kracken : MOHSprite{
+  public:
+    Kracken();
+    void update();
+    void draw();
+    ~Kracken();
 };
-
 # endif

@@ -10,11 +10,11 @@ using namespace std;
 
 
 // Directory Settings.
-const string SOUNDS_DIR = "sounds";
-const string MUSIC_DIR = "music";
-const string IMAGES_DIR = "images";
+const string SOUNDS_DIR = "res/sounds";
+const string MUSIC_DIR = "res/music";
+const string IMAGES_DIR = "res/images";
 const string LOGS_DIR = "..logs/";
-const string FONT_DIR = "font";
+const string FONT_DIR = "res/font";
 const string TEST_DIR = "..test/";
 
 //Display Settings.
