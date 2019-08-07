@@ -1,25 +1,38 @@
-#pragma once
+# pragma once
 # ifndef MOH_SPRITE_H
 # define MOH_SPRITE_H
-# include "MOHEngine.h"
-
+# include "Settings.h"
 class MOHSprite{
-private:
-  SDL_Texture* _texture;
-  SDL_Rect _srcRect, _destRect;
-  SDL_Renderer* _renderer;
-  int _xpos;
-  int _ypos;
-  list <Items> inventory;
-  list <SDL_Texture> animations;
+  private:
+    SDL_Texture* _texture;
+    SDL_Rect _srcRect, _destRect;
+    int _id;
+    int _xPos;
+    int _yPos;
 
-public:
-  MOHSprite(const char* t);
-  virtual void update();
-  virtual void draw();
-  void kill();
+  public:
+    MOHSprite(const char* path, int id, int x, int y);
+    int get_id(){return _id;};
+    virtual void update();
+    virtual void draw();
+
 
 };
+
+class Item : MOHSprite{
+  private:
+
+    char* _description;
+    int _sEffect;
+
+  public:
+    Item(const char* path, int id, int x, int y, int s, const char* d);
+    int getSEffect(){return _sEffect;};
+    char* getDescription(){return _description;};
+
+
+};
+
 class HealthBar : MOHSprite{
 public:
   HealthBar();
@@ -27,38 +40,51 @@ public:
   void draw();
   ~HealthBar();
 };
-class Player : MOHSprite {
-private:
-  bool _isMovingDown = false;
-  bool _isMovingUp = false;
-  bool _isMovingLeft = false;
-  bool _isMovingRight = false;
 
-public:
-  Player();
-  inline void movingUp(){_isMovingUp = true;};
-  inline void movingDown(){_isMovingDown = true;};
-  inline void movingLeft(){_isMovingLeft = true;};
-  inline void movingRight(){_isMovingRight = true;};
-  void update();
-  void draw();
-};
-//Enemies.
-class ChainMine : MOHSprite{
+class Enemy : MOHSprite{
+  private:
+    int _health;
   public:
-    ChainMine();
+    vector <Item> inventory;
+    Enemy(const char* path, int id, int x, int y, int h);
+    int getHealth(){return _health;};
+    void setHealth(int value){this -> _health = value;};
     void update();
     void draw();
-    ~ChainMine();
-  };
+    void kill();
+
+};
+class Player : MOHSprite{
+  private:
+    bool _isMovingDown = false;
+    bool _isMovingUp = false;
+    bool _isMovingLeft = false;
+    bool _isMovingRight = false;
+
+  public:
+    vector <Item> inventory;
+    Player();
+    inline void movingUp(){_isMovingUp = true;};
+    inline void movingDown(){_isMovingDown = true;};
+    inline void movingLeft(){_isMovingLeft = true;};
+    inline void movingRight(){_isMovingRight = true;};
+    void fireBullet();
+    void resetFlags();
+    void update();
+    void draw();
+    void kill();
+    ~Player();
+};
+
 //Bosses
-class Destroyer : MOHSprite {
+class Destroyer : MOHSprite{
   public:
     Destroyer();
     void update();
     void draw();
     ~Destroyer();
   };
+
 class Kracken : MOHSprite{
   public:
     Kracken();
@@ -66,4 +92,6 @@ class Kracken : MOHSprite{
     void draw();
     ~Kracken();
 };
+
+
 # endif

@@ -6,6 +6,7 @@ Game::Game(){
   Game::init("MERRY OUR HEARTS", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
              SCREEN_WIDTH, SCREEN_HEIGHT, FULLSCREEN);
 }
+
 void Game::init(const char *t, int x, int y, int w, int h, bool fs)
 {
 
@@ -42,30 +43,26 @@ void Game::init(const char *t, int x, int y, int w, int h, bool fs)
 
 }
 
-void Game::update(){
 
-  //Update sprites that spawn.
-  for(MOHSprite* s : npcPopulation)
-    s -> update();
-  for(MOHObject* o : objectPopulation)
-    o -> update();
-}
 
 void Game::draw(){
   SDL_RenderClear(_renderer);
-  //Add objects to render.
 
+  //Add objects to render.
   SDL_RenderPresent(_renderer);
 }
 
 void Game::clean(){
 
-  //Free memory from sdl.
-  SDL_DestroyWindow(_window);
-  SDL_DestroyRenderer(_renderer);
-  SDL_Quit();
 }
 
+void MOHEngine::destroy_window(Game* game){
+
+  SDL_DestroyWindow(game-> getWindow());
+  SDL_DestroyRenderer(game-> getRenderer());
+  SDL_Quit();
+
+}
 void MOHEngine::handleEvents(Player* player, Game* game){
 
   SDL_Event event;
@@ -97,27 +94,14 @@ void MOHEngine::handleEvents(Player* player, Game* game){
     player -> resetFlags();
 }
 
-//Update all  game objects npc and player sprites.
-void MOHEngine::update(Player *player, Game *game){
-  game -> update();
-  player -> update();
-}
 
-//Load a single image files and create a texture from it.
-SDL_Texture* MOHEngine::LoadSingleTexture(const char* texturePath, Game* game){
+void MOHEngine::checkEnemyHealth(Game* game){
+    for(Enemy e : game -> enemyPop)
+      if(e.getHealth() <= 0){
+        e.kill();
+        //Transfer items to  players inventory.
 
-  //Load file from given path and create texture.
-  SDL_Surface* tmpSurface = IMG_Load(texturePath);
-  SDL_Texture* tex = SDL_CreateTextureFromSurface(, tmpSurface);
+        //Delete enemy from memory
 
-  //Free surface object from memmory.
-  SDL_FreeSurface(tmpSurface);
-  //Return texture.
-  return tex;
-
-}
-
-//Load several image files into a list of texture pointers.
-list <SDL_Texture*> MOHEngine::LoadMultipleTextures(const char path, Game* game){
-
+      }
 }

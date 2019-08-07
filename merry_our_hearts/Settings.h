@@ -2,7 +2,7 @@
 #ifndef SETTINGS_H
 # define SETTINGS_H
 # include <string>
-# include <list>
+# include <vector>
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_image.h>
 

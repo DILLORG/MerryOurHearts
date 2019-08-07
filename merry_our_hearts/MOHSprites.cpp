@@ -1,33 +1,32 @@
 # include "MOHSprites.h"
+MOHSprite::MOHSprite(const char* path, int id, int xPos, int yPos){
 
-MOHSprite::MOHSprite(const char* path){
-  //Load Texture.
-  _texture = MOHEngine::LoadSingleTexture(path);
+  // _texture = LoadSingleTexture(path);
+  _id = id;
+  _xPos = xPos;
+  _yPos = yPos;
+
+}
+void MOHSprite::update(){
 
 }
 void MOHSprite::draw(){
 
-  //Render given texture on given sprite at given location.
-  SDL_RenderCopy(_renderer, _texture, &_srcRect, &_destRect);
+}
+Enemy::Enemy(const char* path, int id, int x, int y, int h)
+:MOHSprite(path,id, x, y){
+    _health = h;
 
 }
 
-void MOHSprite::update(){
-  _xpos = 0;
-  _ypos = 0;
 
-  _srcRect.h = 180;
-  _srcRect.w = 180;
-  _srcRect.x = 0;
-  _srcRect.y = 0;
-
-  _destRect.x = _xpos;
-  _destRect.y = _ypos;
-  _destRect.h = _srcRect.w * 2;
-  _destRect.h = ~_srcRect.h * 2;
-
+Item::Item(const char* path, int id, int x, int y, int s, const char* d)
+:MOHSprite(path, id, x, y){
+  _description = new char[strlen(d) + 1];
+  strcpy(_description, d);
 }
-void Player::ResetFlags(){
+
+void Player::resetFlags(){
   _isMovingDown = false;
   _isMovingUp = false;
   _isMovingLeft = false;
