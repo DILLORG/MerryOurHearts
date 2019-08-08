@@ -2,6 +2,7 @@
 #ifndef SETTINGS_H
 # define SETTINGS_H
 # include <string>
+#include <vector>
 # include <list>
 # include <map>
 # include <SDL2/SDL.h>

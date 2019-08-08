@@ -74,7 +74,7 @@ void Enemy::kill(){
 
 }
 Enemy::~Enemy(){
-  for(list<Item*>::const_iterator i = _inventory.begin(); i!= _inventory.end)
+
 }
 
 //PLAYER
