@@ -15,7 +15,7 @@ class MOHSprite{
     int get_id(){return _id;};
     virtual void update();
     virtual void draw();
-
+    ~MOHSprite();
 
 };
 
@@ -29,13 +29,14 @@ class Item : MOHSprite{
     Item(const char* path, int id, int x, int y, int s, const char* d);
     int getSEffect(){return _sEffect;};
     char* getDescription(){return _description;};
-
-
+    void update();
+    void draw();
+    ~Item();
 };
 
 class HealthBar : MOHSprite{
 public:
-  HealthBar();
+  HealthBar(const char* path, int id, int x, int y, int s);
   void update();
   void draw();
   ~HealthBar();
@@ -44,26 +45,28 @@ public:
 class Enemy : MOHSprite{
   private:
     int _health;
+    list <Item*> _inventory;
   public:
-    vector <Item> inventory;
+
     Enemy(const char* path, int id, int x, int y, int h);
     int getHealth(){return _health;};
     void setHealth(int value){this -> _health = value;};
     void update();
     void draw();
     void kill();
-
+    ~Enemy();
 };
 class Player : MOHSprite{
   private:
+    int _health;
     bool _isMovingDown = false;
     bool _isMovingUp = false;
     bool _isMovingLeft = false;
     bool _isMovingRight = false;
-
+    map <int , Item*> _inventory;
   public:
-    vector <Item> inventory;
-    Player();
+
+    Player(const char* path, int id, int x, int y, int h);
     inline void movingUp(){_isMovingUp = true;};
     inline void movingDown(){_isMovingDown = true;};
     inline void movingLeft(){_isMovingLeft = true;};
