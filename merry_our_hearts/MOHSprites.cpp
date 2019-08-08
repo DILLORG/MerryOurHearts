@@ -1,12 +1,14 @@
 # include "MOHSprites.h"
+
 //MOHSPRITE
-MOHSprite::MOHSprite(const char* path, int id, int xPos, int yPos){
+MOHSprite::MOHSprite(const char* path, const char* n, int id, int xPos, int yPos){
 
   // _texture = LoadSingleTexture(path);
   _id = id;
   _xPos = xPos;
   _yPos = yPos;
-
+  _name = new char[strlen(n)];
+  strcpy(_name, n);
 }
 void MOHSprite::update(){
 
@@ -14,13 +16,15 @@ void MOHSprite::update(){
 void MOHSprite::draw(){
 
 }
-MOHSprite::~MOHSprite(){
 
+MOHSprite::~MOHSprite(){
+  delete [] _name;
 
 }
+
 //ITEM
-Item::Item(const char* path, int id, int x, int y, int s, const char* d)
-:MOHSprite(path, id, x, y){
+Item::Item(const char* path, const char* n, int id, int x, int y, int s, const char* d)
+:MOHSprite(path, n, id, x, y){
 
   _description = new char[strlen(d) + 1];
   strcpy(_description, d);
@@ -40,10 +44,10 @@ Item::~Item(){
   delete [] _description;
 
 }
-//HEALTHBAR
-HealthBar::HealthBar(const char* path, int id, int x, int y, int s)
-:MOHSprite(path, id, x, y){
 
+//HEALTHBAR
+HealthBar::HealthBar(const char* path, const char* n, int id, int x, int y, int s)
+:MOHSprite(path, n, id, x, y){
 
 }
 
@@ -56,8 +60,8 @@ void HealthBar::draw(){
 }
 
 //ENEMY
-Enemy::Enemy(const char* path, int id, int x, int y, int h)
-:MOHSprite(path, id, x, y){
+Enemy::Enemy(const char* path, const char* n, int id, int x, int y, int h)
+:MOHSprite(path, n, id, x, y){
   _health = h;
 
 
@@ -73,18 +77,38 @@ void Enemy::draw(){
 void Enemy::kill(){
 
 }
+void Enemy::addToInventory(Item *newItem){
+  try{
+    _inventory.push_back(newItem);
+  } catch(bad_alloc){
+    cout << "Inventory is full.";
+  }
+
+}
+void Enemy::showInventory(){
+
+  //For each item in inventory.
+  for(const auto &item : _inventory){
+      item -> print();
+  }
+}
 Enemy::~Enemy(){
 
 }
 
 //PLAYER
-Player::Player(const char* path, int id, int x, int y, int h)
-:MOHSprite(path, id, x, y){
+Player::Player(const char* path, const char* n, int id, int x, int y, int h)
+:MOHSprite(path, n, id, x, y){
   _health = h;
 
 }
 
 void Player::fireBullet(){
+
+}
+
+void Player::addToInventory(Item* item){
+  throw bad_alloc();
 
 }
 

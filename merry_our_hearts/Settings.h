@@ -1,8 +1,9 @@
 # pragma once
 #ifndef SETTINGS_H
 # define SETTINGS_H
+# include <iostream>
 # include <string>
-#include <vector>
+# include <vector>
 # include <list>
 # include <map>
 # include <SDL2/SDL.h>
