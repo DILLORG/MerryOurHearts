@@ -1,4 +1,4 @@
-# include "../merry_our_hearts/MOHEngine.h"
+# include "../core/MOHEngine.h"
 # include <gtest/gtest.h>
 
 
@@ -18,7 +18,7 @@ TEST(AddItemToInventory, GoodInput){
   ASSERT_NO_THROW(enemy.addToInventory(&item));
   ASSERT_NO_THROW(player.addToInventory(&item));
   enemy.showInventory();
-  
+
 
 }
 
