@@ -1,4 +1,5 @@
 # include "MOHEngine.h"
+<<<<<<< HEAD
 # include <iostream>
 using namespace MOHEngine;
 
@@ -17,4 +18,12 @@ int main(){
     MOHEngine::update_screen(&player, &game);
 
   }
+=======
+int main() {
+  ifstream myList;
+  Player player = Player("res", "Player", 1, 3, 5, 7);
+  myList.open("list.csv");
+  MOHEngine::item_spawner(myList, player);
+  return 0;
+>>>>>>> 33b8b4232c59c429559183a31d18ae76b6cf1bf2
 }

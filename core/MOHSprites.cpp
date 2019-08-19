@@ -79,7 +79,7 @@ void Enemy::draw(){
 void Enemy::kill(){
 
 }
-void Enemy::addToInventory(Item *newItem){
+void Enemy::add_to_inventory(Item *newItem){
   try{
     _inventory.push_back(newItem);
   } catch(bad_alloc){
@@ -87,7 +87,7 @@ void Enemy::addToInventory(Item *newItem){
   }
 
 }
-void Enemy::showInventory(){
+void Enemy::show_inventory(){
 
   //For each item in inventory.
   for(const auto &item : _inventory){
@@ -105,16 +105,16 @@ Player::Player(const char* path, const char* n, int id, int x, int y, int h)
 
 }
 
-void Player::fireBullet(){
+void Player::fire_bullet(){
 
 }
 
-void Player::addToInventory(Item* item){
+void Player::add_to_inventory(Item* item){
   throw bad_alloc();
 
 }
 
-void Player::resetFlags(){
+void Player::reset_flags(){
   _isMovingDown = false;
   _isMovingUp = false;
   _isMovingLeft = false;

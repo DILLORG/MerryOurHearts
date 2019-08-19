@@ -1,8 +1,8 @@
-storyboard
 CMakeFiles/
-merry_our_hearts/CMakeFiles/
-merry_our_hearts/cmake_install.cmake
-merry_our_hearts/CMakeCache.txt
+core/CMakeFiles/
+core/cmake_install.cmake
+core/CMakeCache.txt
+StoryBoard/GameMusic
 test/CMakeFiles/MakeFile
 test/cmake_install.cmake
 test/CMakeCache.txt
