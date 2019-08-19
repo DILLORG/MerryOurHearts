@@ -34,7 +34,7 @@ class Game{
   vector <SDL_Texture> loadMultipleTextures(const char* path, Game &game);
   SDL_Texture* loadSingleTexture(const char* path, Game* game);
   template<class T>
-  MOHSprite spawner(ifstream& spawnlist , T obj);
+  MOHSprite itemSpawner(ifstream& spawnlist , T obj);
   void handleEvents(Player* player, Game* game);
   void update_screen(Player* player, Game* game);
   void draw(Player* player, Game* game);

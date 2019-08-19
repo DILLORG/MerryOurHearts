@@ -1,6 +1,7 @@
 # include "MOHEngine.h"
 # include <iostream>
 using namespace MOHEngine;
+
 int main(){
   Item item = Item("res", "Potion", 1, 3, 5, 7, "Gives Health");
   Item item2 = Item("res", "Ether", 1, 3, 5, 7, "Gives MP");
@@ -14,6 +15,6 @@ int main(){
 
   while(true){
     MOHEngine::update_screen(&player, &game);
-    
+
   }
 }

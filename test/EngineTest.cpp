@@ -1,7 +1,6 @@
 # include "../core/MOHEngine.h"
 # include <gtest/gtest.h>
 
-
 TEST(ConstructorTest, GoodInput){
 
   ASSERT_NO_FATAL_FAILURE(MOHSprite("res", "Standard sprite", 1, 4, 5));

@@ -109,12 +109,13 @@ void draw(Player* player, Game* game){
 
 void MOHEngine::checkEnemyHealth(Game* game){
 
-    for(Enemy e : game -> enemyPop)
+    for(auto e : game -> enemyPop)
       if(e.getHealth() <= 0){
         e.kill();
         //Transfer items to  players inventory.
 
-        //Delete enemy from memory
+        //Delete enemy from memory.
+        game -> enemyPop.
 
       }
 }

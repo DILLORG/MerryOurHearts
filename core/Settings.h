@@ -8,9 +8,7 @@
 # include <map>
 # include <SDL2/SDL.h>
 # include <SDL2/SDL_image.h>
-
 using namespace std;
-
 
 // Directory Settings.
 const string SOUNDS_DIR = "res/sounds";
