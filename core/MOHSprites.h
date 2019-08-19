@@ -29,8 +29,8 @@ class Item : public MOHSprite{
 
   public:
     Item(const char* path, const char* n, int id, int x, int y, int s, const char* d);
-    int getSEffect(){return _sEffect;};
-    char* getDescription(){return _description;};
+    int get_status_effect(){return _sEffect;};
+    char* get_description(){return _description;};
     void update();
     void draw();
     ~Item();
@@ -51,10 +51,10 @@ class Enemy : public MOHSprite{
   public:
 
     Enemy(const char* path, const char* n, int id, int x, int y, int h);
-    int getHealth(){return _health;};
-    void addToInventory(Item* newItem);
-    void showInventory();
-    void setHealth(int value){this -> _health = value;};
+    int get_health(){return _health;};
+    void add_to_inventory(Item* newItem);
+    void show_inventory();
+    void set_health(int value){this -> _health = value;};
     void update();
     void draw();
     void kill();
@@ -72,14 +72,14 @@ class Player : public MOHSprite{
   public:
 
     Player(const char* path, const char* n ,int id, int x, int y, int h);
-    inline void movingUp(){_isMovingUp = true;};
-    inline void movingDown(){_isMovingDown = true;};
-    inline void movingLeft(){_isMovingLeft = true;};
-    inline void movingRight(){_isMovingRight = true;};
-    void addToInventory(Item* newItem);
+    inline void moving_up(){_isMovingUp = true;};
+    inline void moving_down(){_isMovingDown = true;};
+    inline void moving_left(){_isMovingLeft = true;};
+    inline void moving_right(){_isMovingRight = true;};
+    void add_to_inventory(Item* newItem);
 
-void fireBullet();
-    void resetFlags();
+void fire_bullet();
+    void reset_flags();
     void update();
     void draw();
     void kill();

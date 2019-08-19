@@ -57,18 +57,18 @@ void Game::clean(){
 }
 
 template<class T>
-MOHSprite MOHEngine::itemSpawner(ifstream& spawnlist, T obj){
+void MOHEngine::item_spawner(ifstream& spawnList, T obj){
   char n, d, p;
   int i, x, y, s;
 
-  while(spawnlist >> n >> i >> x >> y >> s >> d){
-    Item item = Item(p, n, i , x, y, s, d);
-    obj.addToInventory(item);
-  }
+  // while(spawnlist >> n >> i >> x >> y >> s >> d){
+  //   Item item = Item(p, n, i , x, y, s, d)
+  //obj.add_to_inventory();
+  // }
 
 }
 
-void MOHEngine::handleEvents(Player* player, Game* game){
+void MOHEngine::handle_events(Player* player, Game* game){
 
   SDL_Event event;
   SDL_PollEvent(&event);
@@ -76,27 +76,27 @@ void MOHEngine::handleEvents(Player* player, Game* game){
   //Perform function depending upon input.
   switch(event.type){
     case SDL_QUIT:
-      game -> changeRunState(false);
+      game -> change_run_state(false);
       printf("User exited the program\n");
       break;
     case SDLK_w:
-      player -> movingUp();
+      player -> moving_up();
       break;
     case SDLK_s:
-      player -> movingDown();
+      player -> moving_down();
       break;
     case SDLK_a:
-      player -> movingLeft();
+      player -> moving_left();
       break;
     case SDLK_d:
-      player -> movingRight();
+      player -> moving_right();
       break;
     case SDLK_KP_SPACE:
-      player -> fireBullet();
+      player -> fire_bullet();
       break;
   }
 
-    player -> resetFlags();
+    player -> reset_flags();
 }
 
 void update_screen(Player *player, Game *game){
@@ -107,10 +107,10 @@ void draw(Player* player, Game* game){
 
 }
 
-void MOHEngine::checkEnemyHealth(Game* game){
+void MOHEngine::check_enemy_health(Game *game){
 
     for(Enemy e : game -> enemyPop)
-      if(e.getHealth() <= 0){
+      if(e.get_health() <= 0){
         e.kill();
         //Transfer items to  players inventory.
 
@@ -121,8 +121,8 @@ void MOHEngine::checkEnemyHealth(Game* game){
 
 void MOHEngine::destroy_window(Game* game){
 
-  SDL_DestroyWindow(game-> getWindow());
-  SDL_DestroyRenderer(game-> getRenderer());
+  SDL_DestroyWindow(game-> get_window());
+  SDL_DestroyRenderer(game-> get_renderer());
   SDL_Quit();
 
 }
