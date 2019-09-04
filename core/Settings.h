@@ -8,17 +8,14 @@
 # include <vector>
 # include <list>
 # include <map>
-# include <SDL2/SDL.h>
-# include <SDL2/SDL_image.h>
-using namespace std;
 
 // Directory Settings.
-const string SOUNDS_DIR = "res/sounds";
-const string MUSIC_DIR = "res/music";
-const string IMAGES_DIR = "res/images";
-const string LOGS_DIR = "..logs/";
-const string FONT_DIR = "res/font";
-const string TEST_DIR = "..test/";
+const std::string SOUNDS_DIR = "res/sounds";
+const std::string MUSIC_DIR = "res/music";
+const std::string IMAGES_DIR = "res/images";
+const std::string LOGS_DIR = "..logs/";
+const std::string FONT_DIR = "res/font";
+const std::string TEST_DIR = "..test/";
 
 //Display Settings.
 const int SCREEN_WIDTH = 640;

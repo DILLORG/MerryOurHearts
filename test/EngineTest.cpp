@@ -1,5 +1,6 @@
 # include "../core/MOHEngine.h"
 # include <gtest/gtest.h>
+using namespace MOHEngine;
 
 TEST(ConstructorTest, GoodInput){
 
@@ -7,13 +8,7 @@ TEST(ConstructorTest, GoodInput){
   ASSERT_NO_FATAL_FAILURE(Item("res", "Potion", 1, 4, 5, 6, "Give Health"));
   ASSERT_NO_FATAL_FAILURE(Enemy("res","Bat", 2, 4, 5, 200));
   ASSERT_NO_FATAL_FAILURE(Player("res", "Player", 2, 4, 5, 200));
-
-}
-TEST(ItemsSpawner, GoodInput){
-    ifstream spawnList;
-    spawnList.open("testList.csv");
-    Player player = Player("res", "Player", 2, 4, 5, 200);
-    MOHEngine::item_spawner(spawnList, player);
+  ASSERT_NO_FATAL_FAILURE(Game());
 
 }
 
@@ -29,11 +24,7 @@ TEST(AddToPlayerInventory, GoodInput){
   ASSERT_NO_THROW(player.add_to_inventory(&item));
 }
 
-TEST(ItemsSpawnerTest, GoodInput){
-  ifstream spawnList("testList.csv");
-  Player player = Player("res", "PLayer", 5, 4, 6, 100);
-  ASSERT_NO_THROW(MOHEngine::item_spawner(spawnList, player));
-}
+
 int main(int argc, char **argv) {
     testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();

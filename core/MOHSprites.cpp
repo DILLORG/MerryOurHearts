@@ -82,8 +82,8 @@ void Enemy::kill(){
 void Enemy::add_to_inventory(Item *newItem){
   try{
     _inventory.push_back(newItem);
-  } catch(bad_alloc){
-    cout << "Inventory is full.";
+  } catch(std::bad_alloc){
+    std::cout << "Inventory is full.";
   }
 
 }
@@ -110,7 +110,7 @@ void Player::fire_bullet(){
 }
 
 void Player::add_to_inventory(Item* item){
-  throw bad_alloc();
+  throw std::bad_alloc();
 
 }
 
@@ -135,7 +135,7 @@ void Player::kill(){
 }
 Player::~Player(){
   //For item in inventory.
-  for(map<int, Item*>::const_iterator i = _inventory.begin(); i!= _inventory.end();
+  for(std::map<int, Item*>::const_iterator i = _inventory.begin(); i!= _inventory.end();
       ++i)
         //Delete all items.
         delete i -> second;

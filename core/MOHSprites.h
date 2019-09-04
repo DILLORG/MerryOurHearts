@@ -2,6 +2,7 @@
 # ifndef MOH_SPRITE_H
 # define MOH_SPRITE_H
 # include "Settings.h"
+# include <SDL2/SDL_image.h>
 class MOHSprite{
   private:
     SDL_Texture* _texture;
@@ -47,7 +48,7 @@ public:
 class Enemy : public MOHSprite{
   private:
     int _health;
-    list <Item*> _inventory;
+    std::list <Item*> _inventory;
   public:
 
     Enemy(const char* path, const char* n, int id, int x, int y, int h);
@@ -68,7 +69,7 @@ class Player : public MOHSprite{
     bool _isMovingUp = false;
     bool _isMovingLeft = false;
     bool _isMovingRight = false;
-    map <int , Item*> _inventory;
+    std::map <int , Item*> _inventory;
   public:
 
     Player(const char* path, const char* n ,int id, int x, int y, int h);
