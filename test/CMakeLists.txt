@@ -10,5 +10,5 @@ find_package(SDL2 REQUIRED)
 include_directories(SDL2Test ${SDL2_INCLUDE_DIRS})
 
 # Link runTests with what we want to test and the GTest and pthread library
-add_executable(runTests EngineTest.cpp ../core/MOHSprites.cpp )
+add_executable(runTests EngineTest.cpp ../core/Sprite.cpp ../core/Game.cpp)
 target_link_libraries(runTests ${GTEST_LIBRARIES} ${SDL2_LIBRARIES} pthread)
